@@ -24,7 +24,7 @@ jobs:
         uses: arcade-agent/arcade-agent/actions/analyze@v0.4.2
         with:
           arcade-agent-version: "0.4.2"
-          source-path: "."
+          source-path: "wrapper"
           language: "java"
           install-extras: "[languages]"
           run-secondary-analyses: "false"
