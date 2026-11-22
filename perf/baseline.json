@@ -1,0 +1,256 @@
+{
+  "fork": "tuannx/aws-advanced-jdbc-wrapper",
+  "commit": "1209e0801aa83ea0c303e9dde18ba48d959ab531",
+  "date": "2026-11-21",
+  "framework": "JMH 1.37 (upstream benchmarks/ module, me.champeau.jmh, shaded jmhJar)",
+  "jmh_args": "-f 1 -wi 3 -i 5, mode avgt, unit ns/op",
+  "jdk_runtime": "OpenJDK 21.0.13.1+2 (Temurin, ~/workspace/tools/jdk-21.0.13.1+2)",
+  "build": "Gradle 8.14.7 (wrapper-pinned) + toolchains JDK 8u514 / 11.0.29 / 17.0.17 (wrapper is multi-release 8/11/17)",
+  "benchmark_classes": [
+    "ConnectionUrlParserBenchmarks",
+    "HostSelectorBenchmarks",
+    "RdsUtilsBenchmarks"
+  ],
+  "raw_results": "perf/jmh-raw-2026-11-21.json",
+  "caveats": [
+    "Shared VM (1.5 vCPU shared, 6 GB RAM): absolute ns/op values carry noisy-neighbour variance; compare deltas on the same machine class only.",
+    "Benchmarks run DB-free against upstream FakeJdbc stand-ins (per benchmarks/README.md): numbers price wrapper code only, no network round trip.",
+    "High-variance entries on this run: leastConnectionsTwentyPools (\u00b14555.8 on 4350.3) and uncachedIdentifyInstance (\u00b110906.1 on 6499.8) \u2014 treat their deltas with extra caution."
+  ],
+  "benchmarks": {
+    "ConnectionUrlParserBenchmarks.copyProperties": {
+      "score_ns_per_op": 464.195,
+      "error_ns_per_op": 93.755,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "ConnectionUrlParserBenchmarks.getHostsFiveHosts": {
+      "score_ns_per_op": 4627.877,
+      "error_ns_per_op": 242.083,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "ConnectionUrlParserBenchmarks.getHostsFiveHostsSingleWriter": {
+      "score_ns_per_op": 2051.14,
+      "error_ns_per_op": 129.414,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "ConnectionUrlParserBenchmarks.getHostsSingleHost": {
+      "score_ns_per_op": 1267.458,
+      "error_ns_per_op": 224.121,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "ConnectionUrlParserBenchmarks.getProtocol": {
+      "score_ns_per_op": 15.939,
+      "error_ns_per_op": 1.921,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "ConnectionUrlParserBenchmarks.parseDatabaseFromUrl": {
+      "score_ns_per_op": 1440.918,
+      "error_ns_per_op": 153.571,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "ConnectionUrlParserBenchmarks.parseHostPortPair": {
+      "score_ns_per_op": 731.529,
+      "error_ns_per_op": 132.691,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "ConnectionUrlParserBenchmarks.parsePropertiesFromUrl": {
+      "score_ns_per_op": 1279.36,
+      "error_ns_per_op": 167.33,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.contendedRoundRobin": {
+      "score_ns_per_op": 9611.896,
+      "error_ns_per_op": 1102.761,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.highestLoad": {
+      "score_ns_per_op": 131.155,
+      "error_ns_per_op": 18.611,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.highestWeight": {
+      "score_ns_per_op": 150.537,
+      "error_ns_per_op": 6.495,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.leastConnectionsNoPools": {
+      "score_ns_per_op": 400.361,
+      "error_ns_per_op": 51.099,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.leastConnectionsTwentyPools": {
+      "score_ns_per_op": 4350.303,
+      "error_ns_per_op": 4555.819,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.lowestLoad": {
+      "score_ns_per_op": 125.566,
+      "error_ns_per_op": 15.581,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.random": {
+      "score_ns_per_op": 153.374,
+      "error_ns_per_op": 19.558,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.randomAnyRole": {
+      "score_ns_per_op": 157.275,
+      "error_ns_per_op": 13.477,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.roundRobin": {
+      "score_ns_per_op": 1741.221,
+      "error_ns_per_op": 114.608,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.roundRobinWeighted": {
+      "score_ns_per_op": 1736.734,
+      "error_ns_per_op": 93.037,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.weightedRandomFromHostSpec": {
+      "score_ns_per_op": 95.71,
+      "error_ns_per_op": 3.236,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "HostSelectorBenchmarks.weightedRandomFromProperty": {
+      "score_ns_per_op": 185.601,
+      "error_ns_per_op": 97.885,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitGetRdsClusterId": {
+      "score_ns_per_op": 59.999,
+      "error_ns_per_op": 2.818,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitGetRdsInstanceHostPattern": {
+      "score_ns_per_op": 54.908,
+      "error_ns_per_op": 5.223,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitGetRdsInstanceId": {
+      "score_ns_per_op": 42.561,
+      "error_ns_per_op": 2.913,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitGetRdsRegion": {
+      "score_ns_per_op": 40.443,
+      "error_ns_per_op": 6.345,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIdentifyCustomCluster": {
+      "score_ns_per_op": 239.717,
+      "error_ns_per_op": 31.449,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIdentifyInstance": {
+      "score_ns_per_op": 347.577,
+      "error_ns_per_op": 40.534,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIdentifyNonRds": {
+      "score_ns_per_op": 24123.82,
+      "error_ns_per_op": 1521.822,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIdentifyProxy": {
+      "score_ns_per_op": 247.852,
+      "error_ns_per_op": 14.0,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIdentifyReaderCluster": {
+      "score_ns_per_op": 243.402,
+      "error_ns_per_op": 65.783,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIdentifyWriterCluster": {
+      "score_ns_per_op": 235.148,
+      "error_ns_per_op": 13.499,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIsReaderClusterDns": {
+      "score_ns_per_op": 20.303,
+      "error_ns_per_op": 0.912,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.cachedHitIsWriterClusterDns": {
+      "score_ns_per_op": 17.722,
+      "error_ns_per_op": 2.619,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.contendedCachedHitIdentifyInstance": {
+      "score_ns_per_op": 1081.622,
+      "error_ns_per_op": 418.317,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.isGreenInstance": {
+      "score_ns_per_op": 254.473,
+      "error_ns_per_op": 19.369,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.isIPv4Address": {
+      "score_ns_per_op": 238.958,
+      "error_ns_per_op": 4.88,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.isIPv4OnHostName": {
+      "score_ns_per_op": 64.271,
+      "error_ns_per_op": 9.027,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.removePort": {
+      "score_ns_per_op": 17.214,
+      "error_ns_per_op": 1.004,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.uncachedIdentifyInstance": {
+      "score_ns_per_op": 6499.838,
+      "error_ns_per_op": 10906.07,
+      "unit": "ns/op",
+      "mode": "avgt"
+    },
+    "RdsUtilsBenchmarks.uncachedIdentifyNonRds": {
+      "score_ns_per_op": 23655.394,
+      "error_ns_per_op": 4955.983,
+      "unit": "ns/op",
+      "mode": "avgt"
+    }
+  }
+}
